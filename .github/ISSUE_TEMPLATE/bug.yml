@@ -1,0 +1,57 @@
+name: Bug Report
+description: Report reproducible incorrect behavior or a regression
+title: "[Bug] "
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What is wrong, and what is the user or system impact?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Provide the smallest reliable steps, input, request, or scenario that reproduces the problem.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What should happen instead?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior / Evidence
+      description: What happens now? Include relevant logs, screenshots, error messages, failing tests, or links when available. Remove credentials and private data.
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include version, runtime, OS/browser/device, deployment environment, commit, or other context only when relevant.
+    validations:
+      required: false
+  - type: dropdown
+    id: impact
+    attributes:
+      label: Impact
+      options:
+        - Low — cosmetic or limited inconvenience
+        - Medium — feature degraded with a workaround
+        - High — important functionality unavailable or data integrity at risk
+        - Critical — widespread service failure or destructive data loss
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Fix Acceptance Criteria
+      description: State observable conditions that would demonstrate the bug is fixed, including a regression test when practical.
+    validations:
+      required: false
