@@ -1,0 +1,114 @@
+title: "[Proposal] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use the native **Ideas** category for proposals that may change or improve the project. Keep the proposal proportional to its scope. Significant technical changes must be reviewed and approved here before implementation; small ideas do not need architecture-level detail.
+  - type: dropdown
+    id: proposal_type
+    attributes:
+      label: Proposal Type
+      options:
+        - Feature
+        - Architecture
+        - Refactor
+        - Migration
+        - Security
+        - Performance
+        - Other
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      description: Keep proposal state explicit so a draft is not confused with an approved direction.
+      options:
+        - Proposed
+        - Reviewing
+        - Decision Required
+        - Approved
+        - Rejected
+    validations:
+      required: true
+  - type: input
+    id: drafted_by
+    attributes:
+      label: Drafted By
+      description: Identify the human or AI agent/model that produced the initial proposal. Do not overwrite this merely because another AI later revises or synthesizes the Discussion.
+      placeholder: Human | Codex | ChatGPT | Claude | Gemini | Other
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / Context
+      description: What problem or opportunity does this proposal address, and why does it matter?
+    validations:
+      required: true
+  - type: textarea
+    id: current_state
+    attributes:
+      label: Current State
+      description: Summarize relevant current behavior, architecture, constraints, or repository evidence.
+    validations:
+      required: true
+  - type: textarea
+    id: decision_drivers
+    attributes:
+      label: Decision Drivers / Constraints
+      description: State requirements, compatibility constraints, tradeoffs, or evaluation criteria when they materially affect the decision.
+    validations:
+      required: false
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed Direction
+      description: Describe the proposed change without presenting it as already approved.
+    validations:
+      required: true
+  - type: textarea
+    id: target_structure
+    attributes:
+      label: Target Structure / Data Flow
+      description: For architecture, refactor, migration, or other boundary-changing proposals, show the target file/module/service/component structure or data flow. Leave blank when not relevant.
+    validations:
+      required: false
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: For significant decisions, list credible alternatives, including keeping the current design when relevant. Leave blank for simple ideas where comparison adds no value.
+    validations:
+      required: false
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact / Risks
+      description: Summarize material compatibility, migration, rollback, data, security, deployment, performance, operational, or user impact. Keep this proportional to the proposal.
+    validations:
+      required: false
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence / Open Questions
+      description: Link relevant code, benchmarks, docs, incidents, experiments, branches, commits, draft PRs, or unresolved questions.
+    validations:
+      required: false
+  - type: input
+    id: approver
+    attributes:
+      label: Required Approver
+      description: For significant technical changes, identify the user or maintainer who must approve the direction. Leave blank when no formal approval is required.
+    validations:
+      required: false
+  - type: markdown
+    attributes:
+      value: |
+        ## Multi-AI attribution
+        `Drafted By` records the initial proposal author. If another AI materially rewrites or synthesizes the proposal, add a Discussion comment beginning with `AI-Contributor: <agent/model>` and `Role: Revision` or `Role: Synthesis`, followed by a concise description of what changed. Do not replace earlier attribution to erase contribution history.
+
+        AI reviews must begin with `AI-Reviewer: <agent/model>`. Add `Review-Focus: <area>` only when the review has a specialized scope. GitHub account identity records the operator; these labels record the actual AI contributor.
+
+        ## Final decision for significant changes
+        When a significant technical proposal converges, set Status to `Approved` or `Rejected` and update the body or add a final comment with the selected direction, core rationale, important rejected alternatives, accepted risks, and `Approved By: <user/maintainer>` when approved. AI drafting, revision, synthesis, review, or implementation is not approval authority. The Ideas Discussion remains the canonical decision record.
