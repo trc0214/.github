@@ -1,6 +1,6 @@
 name: Implementation
 description: Track approved or otherwise well-defined implementation work
-title: ""
+title: "[Implementation] "
 body:
   - type: input
     id: related_discussion
