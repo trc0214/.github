@@ -18,6 +18,15 @@ This repository owns account-wide GitHub defaults for repositories under `trc021
 - Keep `trc0214/project-template` responsible for files that must physically exist in generated repositories, especially `AGENTS.md`, `README.md`, `.gitignore`, `.env.example`, `.editorconfig`, and `.gitattributes`.
 - When changing a shared template, consider both UI-based use and API/CLI/automation paths before declaring the workflow enforced.
 
+## Label governance
+
+- Use GitHub Labels as a lightweight visual classification/indexing layer for Issues, pull requests, and Discussions. Labels do not replace GitHub lifecycle state, Discussion decisions, or AI provenance.
+- Prefer GitHub's standard repository labels before inventing a custom taxonomy: `bug`, `documentation`, `duplicate`, `enhancement`, `good first issue`, `help wanted`, `invalid`, `question`, and `wontfix`.
+- Account-wide forms should apply stable labels automatically when the meaning is unambiguous: Bug Report -> `bug`; Implementation -> `enhancement`; Ideas Discussion -> `enhancement`.
+- Add `documentation` when documentation is a material part of the tracked work. Other standard labels should be added only when their normal GitHub meaning is actually true.
+- Do not encode `open`, `closed`, `merged`, `approved`, AI model identity, `Drafted By`, reviewer identity, or other provenance/state already represented by GitHub or the durable record into Labels.
+- Create repository-specific custom Labels only when a repeated, durable classification need cannot be expressed by the standard set. Avoid one-off labels and prefix taxonomies that merely duplicate titles, form fields, or native GitHub state.
+
 ## Branching and pull requests
 
 - Keep `main` stable. Do not make planned governance changes directly on `main`.
