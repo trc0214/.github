@@ -36,8 +36,8 @@ body:
     id: drafted_by
     attributes:
       label: Drafted By
-      description: Identify the human or AI agent/model that produced the initial proposal. Do not overwrite this merely because another AI later revises or synthesizes the Discussion.
-      placeholder: Human | Codex | ChatGPT | Claude | Gemini | Other
+      description: Identify the human author, or the AI provider/agent and exact model that produced the initial proposal. If the exact model is unavailable, use "<provider/agent> / model unknown"; never guess.
+      placeholder: Human | ChatGPT / GPT-5.6 Sol | Claude / <model> | Gemini / <model> | Other / model unknown
     validations:
       required: true
   - type: textarea
@@ -107,7 +107,7 @@ body:
     attributes:
       value: |
         ## Multi-AI attribution
-        `Drafted By` records the initial proposal author. If another AI materially rewrites or synthesizes the proposal, add a Discussion comment beginning with `AI-Contributor: <agent/model>` and `Role: Revision` or `Role: Synthesis`, followed by a concise description of what changed. Do not replace earlier attribution to erase contribution history.
+        `Drafted By` records the initial proposal author. If another AI materially rewrites or synthesizes the proposal, add a Discussion comment beginning with `AI-Contributor: <agent/model>` and `Role: Revision` or `Role: Synthesis`, followed by a concise description of what changed. Record the exact model when available; otherwise use `<provider/agent> / model unknown`. Do not replace earlier attribution to erase contribution history.
 
         AI reviews must begin with `AI-Reviewer: <agent/model>`. Add `Review-Focus: <area>` only when the review has a specialized scope. GitHub account identity records the operator; these labels record the actual AI contributor.
 
