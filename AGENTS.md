@@ -36,6 +36,7 @@ This repository owns account-wide GitHub defaults for repositories under `trc021
 ## AI attribution
 
 - GitHub account identity records the operator account and must not be used to infer the actual AI contributor when explicit attribution is required.
+- For AI provenance, record the provider/agent and exact model when the runtime exposes it, for example `ChatGPT / GPT-5.6 Sol`. If the exact model is unavailable, write `<provider/agent> / model unknown`; never guess a model from product name, writing style, branch name, or GitHub account.
 - Every Issue must identify the human or AI agent/model that produced the initial Issue content.
 - Standard Bug/Implementation Issue Forms require the `Drafted By` field.
 - If an Issue is created through Blank issue, GitHub CLI, API, or automation without the standard Issue Form, put `Drafted By: <human-or-agent/model>` at the top of the Issue body before creation. Do not create an Issue without initial attribution.
