@@ -7,14 +7,14 @@ body:
     id: drafted_by
     attributes:
       label: Drafted By
-      description: Identify the human or AI agent/model that produced the initial Issue content. Do not replace this when another AI later edits or implements the Issue.
-      placeholder: Human | Codex | ChatGPT | Claude | Gemini | Other
+      description: Identify the human author, or the AI provider/agent and exact model that produced the initial Issue content. If the exact model is unavailable, use "<provider/agent> / model unknown"; never guess.
+      placeholder: Human | ChatGPT / GPT-5.6 Sol | Claude / <model> | Gemini / <model> | Other / model unknown
     validations:
       required: true
   - type: markdown
     attributes:
       value: |
-        `Drafted By` records immutable initial provenance. If another AI materially changes reproduction, impact, acceptance criteria, or other Issue-defining content, add an Issue comment beginning with `AI-Contributor: <agent/model>` and `Role: Planning`, `Role: Revision`, or `Role: Synthesis`. Do not overwrite the original attribution. GitHub account identity records the operator, not necessarily the AI contributor.
+        `Drafted By` records immutable initial provenance. If another AI materially changes reproduction, impact, acceptance criteria, or other Issue-defining content, add an Issue comment beginning with `AI-Contributor: <agent/model>` and `Role: Planning`, `Role: Revision`, or `Role: Synthesis`. Record the exact model when available; otherwise use `<provider/agent> / model unknown`. Do not overwrite the original attribution. GitHub account identity records the operator, not necessarily the AI contributor.
   - type: textarea
     id: summary
     attributes:
