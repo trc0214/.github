@@ -33,14 +33,18 @@ This repository owns account-wide GitHub defaults for repositories under `trc021
 - Use one short-lived branch per task. AI branches use `ai/<agent>/<task>`.
 - Merge governance changes through a focused pull request after reading back the changed files and checking that no unrelated account-wide behavior was modified.
 
-## Issue AI attribution
+## AI attribution
 
+- GitHub account identity records the operator account and must not be used to infer the actual AI contributor when explicit attribution is required.
 - Every Issue must identify the human or AI agent/model that produced the initial Issue content.
 - Standard Bug/Implementation Issue Forms require the `Drafted By` field.
 - If an Issue is created through Blank issue, GitHub CLI, API, or automation without the standard Issue Form, put `Drafted By: <human-or-agent/model>` at the top of the Issue body before creation. Do not create an Issue without initial attribution.
 - Treat the initial `Drafted By` as immutable provenance; later handoff, revision, or implementation must not overwrite it.
 - If another AI materially changes scope, acceptance criteria, reproduction, impact, dependencies, or other Issue-defining content, add one concise Issue comment beginning with `AI-Contributor: <agent/model>` and `Role: Planning`, `Role: Revision`, or `Role: Synthesis`. Routine wording edits do not require attribution.
-- GitHub account identity records the operator account and must not be used to infer the actual AI contributor when explicit attribution exists.
+- Every pull request with material implementation, test, refactor, configuration, or governance changes must include `Implemented By: <human-or-agent/model>`. If multiple agents materially contributed, list each agent/model with a concise role.
+- `ai/<agent>/<task>` is a routing/ownership hint only; it does not replace model-level implementation provenance in the pull request.
+- AI pull-request reviews must begin with `AI-Reviewer: <agent/model>`.
+- If a substantive AI change is committed without a pull request, add `AI-Agent: <agent/model>` as a commit-message footer.
 
 ## Handoff
 
