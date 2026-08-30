@@ -30,8 +30,11 @@ This repository owns account-wide GitHub defaults for repositories under `trc021
 ## Branching and pull requests
 
 - Keep `main` stable. Do not make planned governance changes directly on `main`.
-- Use one short-lived branch per task. AI branches use `ai/<agent>/<task>`.
+- Use one short-lived task branch per task. When an Issue exists, prefer `task/<issue-number>-<short-name>`; otherwise use a concise `task/<short-name>`.
+- The task branch identifies the work, not the current agent. If governance work changes owner while incomplete, continue on the same task branch after verifying its state.
+- Keep one active writer per task branch at a time. Use a temporary `experiment/<agent>/<task>` branch only when deliberate isolation is justified for a risky or alternative implementation.
 - Merge governance changes through a focused pull request after reading back the changed files and checking that no unrelated account-wide behavior was modified.
+- Treat published shared task history as durable: do not force-push or rebase it by default. For multi-AI task branches, default to a merge commit into `main` so original commit SHAs and AI provenance remain available unless the repository explicitly chooses another strategy.
 
 ## AI attribution
 
@@ -43,10 +46,19 @@ This repository owns account-wide GitHub defaults for repositories under `trc021
 - Treat the initial `Drafted By` as immutable provenance; later handoff, revision, or implementation must not overwrite it.
 - If another AI materially changes scope, acceptance criteria, reproduction, impact, dependencies, or other Issue-defining content, add one concise Issue comment beginning with `AI-Contributor: <agent/model>` and `Role: Planning`, `Role: Revision`, or `Role: Synthesis`. Routine wording edits do not require attribution.
 - Every pull request with material implementation, test, refactor, configuration, or governance changes must include `Implemented By: <human-or-agent/model>`. If multiple agents materially contributed, list each agent/model with a concise role.
-- `ai/<agent>/<task>` is a routing/ownership hint only; it does not replace model-level implementation provenance in the pull request.
+- Every material AI commit must add `AI-Agent: <agent/model>` as a commit-message footer. This is the commit-level provenance used when multiple agents share one task branch or Git identity.
+- Task branch names do not encode agent identity and do not replace model-level provenance.
 - AI pull-request reviews must begin with `AI-Reviewer: <agent/model>`.
-- If a substantive AI change is committed without a pull request, add `AI-Agent: <agent/model>` as a commit-message footer.
 
 ## Handoff
 
-If governance work changes owner while still incomplete, leave concise durable context in the linked Issue or PR: previous and next owner, completed work, remaining work, verification, known risks, and next step.
+If governance work changes owner while still incomplete, continue on the same task branch and leave concise durable context in the linked Issue or PR:
+
+- `<from-agent/model> → <to-agent/model>`
+- completed work
+- remaining work
+- verification state
+- `Last Verified Commit: <SHA>` only when the current HEAD is not fully verified
+- known risks only when they exist
+
+Do not duplicate information already recoverable from Git, the Issue, or the PR. The receiving agent must inspect the branch, recent commits, diff, and checks before continuing. If a published commit is bad, prefer `git revert` or selective reuse of good commits over rewriting shared history.
