@@ -18,6 +18,8 @@ Ideas Discussion (required for significant technical change):
 
 What tests, checks, build, or manual verification were run?
 
+Last Verified Commit: <!-- Fill only when the current HEAD is not fully verified. Otherwise leave blank. -->
+
 ## Risk
 
 Describe material compatibility, migration, security, deployment, or rollback risk when applicable.
@@ -27,6 +29,7 @@ Describe material compatibility, migration, security, deployment, or rollback ri
 - [ ] Change stays within scope
 - [ ] `Implemented By` identifies the actual material contributor(s); AI entries include provider/agent and exact model when available, or `model unknown`
 - [ ] Applicable checks were run
+- [ ] If current HEAD is not fully verified, `Last Verified Commit` identifies the latest verified SHA
 - [ ] Significant technical changes link an approved Ideas Discussion
 - [ ] No secrets, debug artifacts, or unrelated files were committed
 - [ ] Stable documentation was updated only when needed
